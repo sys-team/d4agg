@@ -25,14 +25,9 @@ ch.defineEntity
 ch.defineEntity
 'D4Practitioner',
 'title:fname:lname:photo:xmlData:id:ts:cts:xid',
-''
+'clinic,D4Clinic'
 ;
 
-ch.defineEntity
-'D4PractitionerClinic',
-'dateb:datee:id:ts:cts:xid',
-'practitioner,D4Practitioner:clinic,D4Clinic'
-;
 
 ch.defineEntity
 'D4Patient',
@@ -49,11 +44,11 @@ ch.defineEntity
 ch.defineEntity
 'D4TimeSlot',
 'dateb:datee:status:id:ts:cts:xid',
-'practitioner,D4Practitioner:clinic,D4Clinic'
+'practitioner,D4Practitioner'
 ;
 
 ch.defineEntity
-'D4SurgeryRequest',
+'D4PatientRequest',
 'status:id:ts:cts:xid',
 'timeSlot,D4TimeSlot:patient,D4Patient'
 ;
