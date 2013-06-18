@@ -1,54 +1,54 @@
 ch.defineEntity
 'D4WClinic',
-'name:address:latitude:longitude:photo:id:ts:cts:xid',
+'name:address:latitude:longitude:photo:id:ts:cts',
 ''
 ;
 
 ch.defineEntity
 'D4WPatient',
-'title:fname:lname:mname:gender:birthDate:phone:id:ts:cts:xid',
+'title:fname:lname:mname:gender:birthDate:phone:id:ts:cts',
 ''
 ;
 	
 ch.defineEntity
 'D4WSpecialization',
-'name:id:ts:cts:xid',
+'name:id:ts:cts',
 ''
 ;
 
 ch.defineEntity
 'D4WPractitioner',
-'title:fname:lname:mname:photo:id:ts:cts:xid',
+'title:fname:lname:mname:photo:id:ts:cts',
 'clinic,D4WClinic'
 ;
 
 ch.defineEntity
 'D4WPractitionerSpecialization',
-'id:ts:cts:xid',
+'id:ts:cts',
 'practitioner,D4WPractitioner:specialization,D4WSpecialization'
 ;
 
 ch.defineEntity
 'D4WChair',
-'name:id:ts:cts:xid',
+'name:id:ts:cts',
 'clinic,D4WClinic'
 ;
 
 ch.defineEntity
 'D4WChairSpecialization',
-'id:ts:cts:xid',
+'id:ts:cts',
 'chair,D4WChair:specialization,D4WSpecialization'
 ;
 
 ch.defineEntity
 'D4WTimeSlot',
-'dateb:duration:id:ts:cts:xid',
+'dateb:duration:id:ts:cts',
 'chair,D4WChair'
 ;
 
 ch.defineEntity
 'D4WPatientRequest',
-'status:id:ts:cts:xid',
+'status:id:ts:cts',
 'timeSlot,D4WTimeSlot:practitioner,D4WPractitioner:patient,D4WPatient:chair,D4WChair'
 ;
 
