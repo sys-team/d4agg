@@ -5,10 +5,10 @@ ch.defineProperties
 'name,STRING:code,STRING:address,STRING:xmlData,xml:altitude,double:longitude,double'
 ;
 ch.defineProperties
-'dateb,datetime:datee,datetime:status,integer'
+'dateb,datetime:datee,datetime:duration,integer:status,integer'
 ;
 ch.defineProperties
-'title,STRING:fname,STRING:lname,STRING:photo,long binary:UOAuthAccount,ID'
+'title,STRING:fname,STRING:lname,STRING:mname,STRING:gender,STRING:birthDate,datetime:phone,STRING:photo,long binary:UOAuthAccount,ID'
 ;
 
 

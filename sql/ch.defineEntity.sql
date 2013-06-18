@@ -1,56 +1,55 @@
 ch.defineEntity
-'D4Geoposition',
-'address:altitude:longitude:id:ts:cts:xid',
+'D4WClinic',
+'name:address:latitude:longitude:photo:id:ts:cts:xid',
 ''
 ;
 
 ch.defineEntity
-'D4InsuranceCompany',
+'D4WPatient',
+'title:fname:lname:mname:gender:birthDate:phone:id:ts:cts:xid',
+''
+;
+	
+ch.defineEntity
+'D4WSpecialization',
 'name:id:ts:cts:xid',
 ''
 ;
 
 ch.defineEntity
-'D4Clinic',
-'name:code:xmlData:id:ts:cts:xid',
-'geoposition,D4Geoposition'
+'D4WPractitioner',
+'title:fname:lname:mname:photo:id:ts:cts:xid',
+'clinic,D4WClinic'
 ;
 
 ch.defineEntity
-'D4ClinicInsuranceCompany',
-'dateb:datee:id:ts:cts:xid',
-'insuranseCompany,D4InsuranceCompany:clinic,D4Clinic'
+'D4WPractitionerSpecialization',
+'id:ts:cts:xid',
+'practitioner,D4WPractitioner:specialization,D4WSpecialization'
 ;
 
 ch.defineEntity
-'D4Practitioner',
-'title:fname:lname:photo:xmlData:id:ts:cts:xid',
-'clinic,D4Clinic'
-;
-
-
-ch.defineEntity
-'D4Patient',
-'title:fname:lname:photo:UOAuthAccount:xmlData:id:ts:cts:xid',
-''
+'D4WChair',
+'name:id:ts:cts:xid',
+'clinic,D4WClinic'
 ;
 
 ch.defineEntity
-'D4PatientInsuranceCompany',
-'dateb:datee:id:ts:cts:xid',
-'insuranseCompany,D4InsuranceCompany:patient,D4Patient'
+'D4WChairSpecialization',
+'id:ts:cts:xid',
+'chair,D4WChair:specialization,D4WSpecialization'
 ;
 
 ch.defineEntity
-'D4TimeSlot',
-'dateb:datee:status:id:ts:cts:xid',
-'practitioner,D4Practitioner'
+'D4WTimeSlot',
+'dateb:duration:id:ts:cts:xid',
+'chair,D4WChair'
 ;
 
 ch.defineEntity
-'D4PatientRequest',
+'D4WPatientRequest',
 'status:id:ts:cts:xid',
-'timeSlot,D4TimeSlot:patient,D4Patient'
+'timeSlot,D4WTimeSlot:practitioner,D4WPractitioner:patient,D4WPatient:chair,D4WChair'
 ;
 
 commit
