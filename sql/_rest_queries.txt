@@ -1,0 +1,24 @@
+-- clinic list
+curl -k --url "https://system.unact.ru/iproxy/rest/d4agg/d4w.Clinic"  --header "authorization: .."
+
+-- clinic search by name
+curl -k --url "https://system.unact.ru/iproxy/rest/d4agg/d4w.Clinic/name%25=%25cats%25"  --header "authorization: .."
+
+-- clinic search by address
+curl -k --url "https://system.unact.ru/iproxy/rest/d4agg/d4w.Clinic/address%25=%25sidney%25"  --header "authorization: .."
+
+-- clinic by time slol
+-- dateb = <time>
+curl -k --url "https://system.unact.ru/iproxy/rest/d4agg/d4w.TimeSlot/dateb=2013-06-19%2011:00/d4w.Chair//d4w.Clinic"  --header "authorization: .."
+-- dateb >= <time>
+curl -k --url "https://system.unact.ru/iproxy/rest/d4agg/d4w.TimeSlot/dateb%3E=2013-06-19%2013:00/d4w.Chair//d4w.Clinic"  --header "authorization: .."
+-- dateb between <time1> and <time2>
+curl -k --url "https://system.unact.ru/iproxy/rest/d4agg/d4w.TimeSlot/dateb%3E=2013-06-19%2011:00&dateb%3C=2013-06-19%2011:00/d4w.Chair//d4w.Clinic"  --header "authorization: .."
+
+
+-- Time slot by clinic
+-- id
+curl -k --url "https://system.unact.ru/iproxy/rest/d4agg/d4w.Clinic/1/d4w.Chair//d4w.TimeSlot"  --header "authorization: .."
+-- xid
+curl -k --url "https://system.unact.ru/iproxy/rest/d4agg/d4w.Clinic/79d49c69-d8ae-11e2-8000-88fc76905512/d4w.Chair//d4w.TimeSlot"  --header "authorization:.."
+

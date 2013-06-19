@@ -1,21 +1,21 @@
--- D4WClinic
-insert into cht.d4wclinic on existing update with auto name
+-- Clinic
+insert into d4w.Clinic on existing update with auto name
 select 1 as id,
-    'clinic #1' as name,
-    'Town street house #1' as address,
-    100 as latitude,
-    100 as longitude
+    'Big Cats clinic' as name,
+    '000 Brisbane cats street #1' as address,
+    -27.449790 as latitude,
+    153.281250 as longitude
 union
 select 2,
-    'clinic #2',
-    'Town street house #2',
-    100 as latitude,
-    100 as longitude
+    'Small dogs practice',
+    '002 Sidney dogs street house #2',
+    -33.504759,
+    151.875000 
 ;
 commit
 ;
--- D4WPractitioner
-insert into cht.D4WPractitioner on existing update with auto name
+-- Practitioner
+insert into d4w.Practitioner on existing update with auto name
 select 1 as id,
     'mr' as title,
     'Tommy' as fname,
@@ -30,8 +30,8 @@ select 2,
 ;
 commit
 ;
--- D4WSpecialization
-insert into cht.D4WSpecialization on existing update with auto name
+-- Specialization
+insert into d4w.Specialization on existing update with auto name
 select 'parodontist' as name,
     1 as id
 union
@@ -44,8 +44,8 @@ select 'prosthetist',
 commit
 ;
 
--- D4WPractitionerSpecialization
-insert into cht.D4WPractitionerSpecialization on existing update with auto name
+-- PractitionerSpecialization
+insert into d4w.PractitionerSpecialization on existing update with auto name
 select 1 as practitioner,
     1 as specialization
 union
@@ -58,8 +58,8 @@ select 2,2
 commit
 ;
 
--- D4WPatient
-insert into cht.D4WPatient on existing update with auto name
+-- Patient
+insert into d4w.Patient on existing update with auto name
 select 1 as id,
     'mr' as title,
     'Cat' as lname,
@@ -75,8 +75,8 @@ select 2,
 commit
 ;
 
--- D4WChair
-insert into cht.D4WChair on existing update with auto name
+-- Chair
+insert into d4w.Chair on existing update with auto name
 select 1 as id,
     'Big chair' as name,
     1 as clinic
@@ -88,8 +88,8 @@ select 2,
 commit
 ;
 
--- D4WChairSpecialization
-insert into cht.D4WChairSpecialization on existing update with auto name
+-- ChairSpecialization
+insert into d4w.ChairSpecialization on existing update with auto name
 select 1 as chair,
     1 as specialization
 union
@@ -100,6 +100,21 @@ union
 select 2,2
 union
 select 2,3
+;
+commit
+;
+
+-- TimeSlot
+insert into d4w.TimeSlot on existing update with auto name
+select 1 as chair,
+    dateadd(hh, 12, today()) as dateb,
+    30 as duration
+union
+select 1,  dateadd(hh, 14, today()), 60
+union
+select 2,  dateadd(hh, 14, today()), 30
+union
+select 2,  dateadd(hh, 11, today()), 120
 ;
 commit
 ;
